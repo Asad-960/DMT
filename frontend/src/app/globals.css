@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply transition-all duration-200;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply antialiased;
+}
+
+/* Medical-themed styles */
+.medical-card {
+  @apply bg-white border border-slate-200 rounded-xl shadow-medical hover:shadow-medical-lg;
+}
+
+.medical-button-primary {
+  @apply px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium rounded-lg hover:shadow-lg transform hover:scale-105 active:scale-95;
+}
+
+.medical-button-secondary {
+  @apply px-6 py-2.5 bg-slate-100 text-slate-700 font-medium rounded-lg hover:bg-slate-200;
+}
+
+.medical-input {
+  @apply w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent placeholder-slate-400;
+}
+
+.medical-label {
+  @apply block text-sm font-semibold text-slate-700 mb-1.5;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    @apply opacity-0 translate-y-4;
+  }
+  to {
+    @apply opacity-100 translate-y-0;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    @apply opacity-0 translate-x-4;
+  }
+  to {
+    @apply opacity-100 translate-x-0;
+  }
+}
+
+.animate-fadeIn {
+  @apply animate-[fadeIn_0.3s_ease-out];
+}
+
+.animate-slideInLeft {
+  @apply animate-[slideInLeft_0.3s_ease-out];
+}
+
+/* Grid utilities */
+.grid-cols-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400;
+}
