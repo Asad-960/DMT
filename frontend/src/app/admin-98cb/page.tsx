@@ -1,15 +1,19 @@
 'use client'
 
 import React, { useState } from 'react'
-import { FileText, Users, Calendar, DollarSign, TrendingUp, Settings, LogOut, Menu, X } from 'lucide-react'
+import { FileText, Users, Calendar, DollarSign, TrendingUp, Settings, LogOut, Menu, X, Brain, MessageSquare, Activity, Shield } from 'lucide-react'
 import Dashboard from '@/components/Dashboard'
 import PatientManagement from '@/components/PatientManagement'
 import AppointmentScheduler from '@/components/AppointmentScheduler'
 import TravelCoordination from '@/components/TravelCoordination'
 import AnalyticsDashboard from '@/components/AnalyticsDashboard'
 import PaymentSystem from '@/components/PaymentSystem'
+import AIdiagnostics from '@/components/AIdiagnostics'
+import AIConcierge from '@/components/AIConcierge'
+import PatientPipeline from '@/components/PatientPipeline'
+import Compliance from '@/components/Compliance'
 
-type Page = 'dashboard' | 'patients' | 'appointments' | 'travel' | 'analytics' | 'payments'
+type Page = 'dashboard' | 'patients' | 'appointments' | 'travel' | 'analytics' | 'payments' | 'diagnostics' | 'concierge' | 'pipeline' | 'compliance'
 
 export default function AdminPage() {
   const [currentPage, setCurrentPage] = useState<Page>('dashboard')
@@ -28,6 +32,10 @@ export default function AdminPage() {
     { id: 'travel', label: 'Travel & Logistics', icon: FileText },
     { id: 'payments', label: 'Payments', icon: DollarSign },
     { id: 'analytics', label: 'Analytics', icon: TrendingUp },
+    { id: 'diagnostics', label: 'AI Diagnostics', icon: Brain },
+    { id: 'concierge', label: 'AI Concierge', icon: MessageSquare },
+    { id: 'pipeline', label: 'Patient Pipeline', icon: Activity },
+    { id: 'compliance', label: 'Compliance', icon: Shield },
   ]
 
   const renderPage = () => {
@@ -38,6 +46,10 @@ export default function AdminPage() {
       travel: <TravelCoordination />,
       analytics: <AnalyticsDashboard />,
       payments: <PaymentSystem />,
+      diagnostics: <AIdiagnostics />,
+      concierge: <AIConcierge />,
+      pipeline: <PatientPipeline />,
+      compliance: <Compliance />,
     }
     return pages[currentPage]
   }
