@@ -173,7 +173,7 @@ export default function LandingPage() {
             >
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Patient Management</h2>
               <p className="text-xl text-gray-600 mb-6">
-                Images, videos, PDFs and audio files are supported. Create rich expressions and diagrams directly from the app. Take photos with the mobile app and save them to a note.
+                Manage patient records, track treatment plans, and organize medical histories in one centralized system. Store case photos, treatment documentation, and patient communication for seamless coordination across your dental team.
               </p>
               <button className="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition">
                 Get Started
@@ -195,7 +195,7 @@ export default function LandingPage() {
             >
               <h2 className="text-4xl font-bold text-gray-900 mb-4">Work Together</h2>
               <p className="text-xl text-gray-600 mb-8">
-                With DMT, share your notes with your colleagues and collaborate on them. You can also publish a note to the internet and share the URL with others.
+                Enable seamless team collaboration with real-time updates and shared patient information. Coordinate appointments, treatment plans, and international patient logistics across your entire dental practice network.
               </p>
               <button className="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition">
                 Try It Now
