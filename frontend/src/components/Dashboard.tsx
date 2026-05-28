@@ -29,7 +29,7 @@ ChartJS.register(
 )
 
 const StatCard = ({ icon: Icon, label, value, trend, color }: any) => (
-  <div className="medical-card p-6 animate-slideInUp hover:shadow-lg transition-all duration-300" style={{animationFillMode: 'both'}}>
+  <div className="medical-card p-6 animate-slideInUp hover:shadow-lg transition-all duration-300" style={{ animationFillMode: 'both' }}>
     <div className="flex items-center justify-between">
       <div className="flex-1">
         <p className="text-slate-500 text-sm font-medium">{label}</p>
@@ -49,9 +49,9 @@ const StatCard = ({ icon: Icon, label, value, trend, color }: any) => (
 )
 
 const TeamMemberCard = ({ name, role, level, avatar, idx }: any) => (
-  <div 
+  <div
     className="medical-card p-4 text-center card-hover animate-slideInUp"
-    style={{animationDelay: `${idx * 50}ms`, animationFillMode: 'both'}}
+    style={{ animationDelay: `${idx * 50}ms`, animationFillMode: 'both' }}
   >
     <div className="w-20 h-20 rounded-full mx-auto mb-3 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-3xl shadow-md">
       {avatar}
@@ -65,9 +65,9 @@ const TeamMemberCard = ({ name, role, level, avatar, idx }: any) => (
 )
 
 const EventItem = ({ title, time, color, idx, type }: any) => (
-  <div 
+  <div
     className="flex items-center space-x-3 p-4 rounded-lg border border-slate-100 hover:bg-slate-50 transition-all duration-200 animate-slideInUp"
-    style={{animationDelay: `${idx * 80}ms`, animationFillMode: 'both'}}
+    style={{ animationDelay: `${idx * 80}ms`, animationFillMode: 'both' }}
   >
     <div className={`w-1 h-8 rounded-full ${color}`}></div>
     <div className="flex-1">
@@ -86,7 +86,7 @@ const ProjectCard = ({ name, code, date, priority, stats, idx }: any) => {
     'High': 'text-orange-500',
     'Low': 'text-green-500',
   }
-  
+
   const priorityBg = {
     'Medium': 'bg-amber-50',
     'High': 'bg-orange-50',
@@ -94,9 +94,9 @@ const ProjectCard = ({ name, code, date, priority, stats, idx }: any) => {
   }
 
   return (
-    <div 
+    <div
       className="medical-card p-6 card-hover animate-slideInUp"
-      style={{animationDelay: `${idx * 100}ms`, animationFillMode: 'both'}}
+      style={{ animationDelay: `${idx * 100}ms`, animationFillMode: 'both' }}
     >
       <div className="flex items-start justify-between mb-4">
         <div>
@@ -107,16 +107,16 @@ const ProjectCard = ({ name, code, date, priority, stats, idx }: any) => {
           {priority}
         </span>
       </div>
-      
+
       <p className="text-slate-500 text-xs mb-4">Created {date}</p>
-      
+
       <div className="space-y-2 mb-4">
         <div className="flex justify-between text-xs font-medium text-slate-600">
           <span>All tasks</span>
           <span>{stats.all}</span>
         </div>
         <div className="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
-          <div className="bg-blue-500 h-full rounded-full" style={{width: `${(stats.active / stats.all) * 100}%`}}></div>
+          <div className="bg-blue-500 h-full rounded-full" style={{ width: `${(stats.active / stats.all) * 100}%` }}></div>
         </div>
         <div className="flex justify-between text-xs font-medium text-slate-600">
           <span>Active tasks</span>
@@ -166,25 +166,25 @@ export default function Dashboard() {
   ]
 
   const projects = [
-    { 
-      name: 'International Implant Program', 
-      code: 'PN0001265', 
+    {
+      name: 'International Implant Program',
+      code: 'PN0001265',
       date: 'Sep 12, 2020',
       priority: 'High',
       stats: { all: 34, active: 13, assignees: ['👨‍⚕️', '👩‍⚕️', '👨‍⚕️'], more: 2 },
       idx: 0
     },
-    { 
-      name: 'Cosmetic Smile Makeover', 
-      code: 'PN0001221', 
+    {
+      name: 'Cosmetic Smile Makeover',
+      code: 'PN0001221',
       date: 'Sep 10, 2020',
       priority: 'Medium',
       stats: { all: 50, active: 24, assignees: ['👨‍⚕️', '👩‍⚕️', '👨‍⚕️'] },
       idx: 1
     },
-    { 
-      name: 'Root Canal Specialization', 
-      code: 'PN0001290', 
+    {
+      name: 'Root Canal Specialization',
+      code: 'PN0001290',
       date: 'May 28, 2020',
       priority: 'Medium',
       stats: { all: 23, active: 20, assignees: ['👨‍⚕️', '👩‍⚕️'] },
@@ -269,7 +269,7 @@ export default function Dashboard() {
         <h2 className="text-3xl font-bold text-slate-900 mb-6 tracking-tight">Dashboard</h2>
         <div className="grid grid-cols-responsive">
           {stats.map((stat, idx) => (
-            <div key={idx} style={{animationDelay: `${idx * 50}ms`}}>
+            <div key={idx} style={{ animationDelay: `${idx * 50}ms` }}>
               <StatCard {...stat} />
             </div>
           ))}
@@ -322,10 +322,10 @@ export default function Dashboard() {
             </div>
             <div className="space-y-4">
               {activityStream.map((activity, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="flex items-start space-x-3 pb-4 border-b border-slate-100 last:border-b-0 animate-slideInUp"
-                  style={{animationDelay: `${idx * 100}ms`, animationFillMode: 'both'}}
+                  style={{ animationDelay: `${idx * 100}ms`, animationFillMode: 'both' }}
                 >
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-slate-300 to-slate-400 flex items-center justify-center text-lg flex-shrink-0">
                     {activity.avatar}

@@ -1,26 +1,42 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react'
+import { motion } from 'framer-motion'
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }
+}
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+}
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.85 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+}
 
 export default function LandingPage() {
-  const [scrollY, setScrollY] = useState(0)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   return (
     <div className="w-full overflow-hidden bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-gradient-to-b from-blue-900 to-transparent">
+      <motion.nav 
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className="fixed top-0 w-full z-50 bg-gradient-to-b from-blue-900 to-transparent"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3">
@@ -57,7 +73,11 @@ export default function LandingPage() {
 
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden pb-4 space-y-2">
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              className="md:hidden pb-4 space-y-2 overflow-hidden"
+            >
               <a href="#products" className="block text-gray-100 hover:text-white py-2">Products</a>
               <a href="#solutions" className="block text-gray-100 hover:text-white py-2">Solutions</a>
               <a href="#resources" className="block text-gray-100 hover:text-white py-2">Resources</a>
@@ -68,26 +88,28 @@ export default function LandingPage() {
                   Get Started
                 </Link>
               </div>
-            </div>
+            </motion.div>
           )}
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Hero Section */}
-      <section className="relative w-full pt-20 pb-20 overflow-hidden bg-gradient-to-b from-blue-900 via-blue-800 to-blue-700">
+      <section className="relative w-full pt-32 lg:pt-40 pb-20 overflow-hidden bg-gradient-to-b from-blue-900 via-blue-800 to-blue-700">
         {/* Parallax Background Elements */}
-        <div
+        <motion.div
+          animate={{ translateY: [0, 20, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
           className="absolute top-0 right-0 w-96 h-96 opacity-10"
           style={{
-            transform: `translateY(${scrollY * 0.5}px)`,
             backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M10 10 Q 25 25 40 10 T 70 10\' stroke=\'white\' fill=\'none\' stroke-width=\'2\'/%3E%3C/svg%3E")',
             backgroundRepeat: 'repeat'
           }}
         />
-        <div
+        <motion.div
+          animate={{ translateY: [0, -20, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
           className="absolute bottom-0 left-0 w-96 h-96 opacity-10"
           style={{
-            transform: `translateY(${scrollY * -0.3}px)`,
             backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Ccircle cx=\'50\' cy=\'50\' r=\'30\' stroke=\'white\' fill=\'none\' stroke-width=\'2\'/%3E%3C/svg%3E")',
             backgroundRepeat: 'repeat'
           }}
@@ -96,29 +118,31 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
-            <div
-              style={{
-                transform: `translateY(${scrollY * 0.3}px)`,
-              }}
+            <motion.div 
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
               className="text-white"
             >
-              <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              <motion.h1 variants={fadeInUp} className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 Get More Done with DMT
-              </h1>
-              <p className="text-xl text-gray-100 mb-8 leading-relaxed">
+              </motion.h1>
+              <motion.p variants={fadeInUp} className="text-xl text-gray-100 mb-8 leading-relaxed">
                 AI-powered CRM software that enables your team to collaborate, manage patients, and streamline your dental practice with ease.
-              </p>
-              <button className="bg-blue-400 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-300 transition flex items-center space-x-2">
-                <span>Try DMT Free</span>
-                <ArrowRight size={20} />
-              </button>
-            </div>
+              </motion.p>
+              <motion.div variants={fadeInUp}>
+                <button className="bg-blue-400 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-300 transition flex items-center space-x-2">
+                  <span>Try DMT Free</span>
+                  <ArrowRight size={20} />
+                </button>
+              </motion.div>
+            </motion.div>
 
             {/* Right Illustration */}
-            <div
-              style={{
-                transform: `translateY(${scrollY * -0.2}px)`,
-              }}
+            <motion.div
+              variants={scaleIn}
+              initial="hidden"
+              animate="visible"
               className="relative h-96 hidden lg:block"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-300 to-blue-500 rounded-3xl opacity-30 blur-3xl" />
@@ -130,19 +154,19 @@ export default function LandingPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
         {/* Scroll Indicator */}
-        <div
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.8 }}
+          transition={{ delay: 1, duration: 1 }}
           className="flex justify-center mt-16"
-          style={{
-            opacity: Math.max(0, 1 - scrollY / 300),
-          }}
         >
           <ChevronDown className="text-white animate-bounce" size={32} />
-        </div>
+        </motion.div>
       </section>
 
       {/* Project Management Section */}
@@ -150,10 +174,11 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Illustration */}
-            <div
-              style={{
-                transform: `translateY(${Math.max(0, scrollY - 400) * 0.2}px)`,
-              }}
+            <motion.div 
+              variants={scaleIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
               className="relative h-80"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-200 to-purple-200 rounded-3xl opacity-30 blur-3xl" />
@@ -163,22 +188,23 @@ export default function LandingPage() {
                   <p className="text-blue-900 font-semibold">Team Collaboration</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Content */}
-            <div
-              style={{
-                transform: `translateY(${Math.max(0, scrollY - 400) * -0.2}px)`,
-              }}
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Patient Management</h2>
-              <p className="text-xl text-gray-600 mb-6">
+              <motion.h2 variants={fadeInUp} className="text-4xl font-bold text-gray-900 mb-4">Patient Management</motion.h2>
+              <motion.p variants={fadeInUp} className="text-xl text-gray-600 mb-6">
                 Manage patient records, track treatment plans, and organize medical histories in one centralized system. Store case photos, treatment documentation, and patient communication for seamless coordination across your dental team.
-              </p>
-              <button className="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition">
+              </motion.p>
+              <motion.button variants={fadeInUp} className="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition">
                 Get Started
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -188,25 +214,27 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
-            <div
-              style={{
-                transform: `translateY(${Math.max(0, scrollY - 800) * 0.2}px)`,
-              }}
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">Work Together</h2>
-              <p className="text-xl text-gray-600 mb-8">
+              <motion.h2 variants={fadeInUp} className="text-4xl font-bold text-gray-900 mb-4">Work Together</motion.h2>
+              <motion.p variants={fadeInUp} className="text-xl text-gray-600 mb-8">
                 Enable seamless team collaboration with real-time updates and shared patient information. Coordinate appointments, treatment plans, and international patient logistics across your entire dental practice network.
-              </p>
-              <button className="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition">
+              </motion.p>
+              <motion.button variants={fadeInUp} className="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition">
                 Try It Now
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
 
             {/* Right Circle Diagram */}
-            <div
-              style={{
-                transform: `translateY(${Math.max(0, scrollY - 800) * -0.2}px)`,
-              }}
+            <motion.div
+              variants={scaleIn}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
               className="relative h-96 flex items-center justify-center"
             >
               <svg className="w-full h-full max-w-sm" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
@@ -233,32 +261,44 @@ export default function LandingPage() {
                   const x = 150 + 100 * Math.cos(rad)
                   const y = 150 + 100 * Math.sin(rad)
                   return (
-                    <g key={i}>
+                    <motion.g 
+                      key={i}
+                      initial={{ scale: 0, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      transition={{ delay: i * 0.1, duration: 0.5, type: 'spring' }}
+                      viewport={{ once: true }}
+                    >
                       <circle cx={x} cy={y} r="22" fill={['#fbbf24', '#60a5fa', '#4f46e5', '#10b981', '#f87171', '#8b5cf6', '#ec4899', '#06b6d4'][i]} />
                       <text x={x} y={y + 8} textAnchor="middle" fontSize="16">{item.emoji}</text>
-                    </g>
+                    </motion.g>
                   )
                 })}
               </svg>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-blue-900 text-white">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-5xl font-bold mb-6">Ready to transform your dental practice?</h2>
-          <p className="text-xl text-blue-100 mb-8">Start managing your patients and appointments with DMT today.</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8"
+        >
+          <motion.h2 variants={fadeInUp} className="text-5xl font-bold mb-6">Ready to transform your dental practice?</motion.h2>
+          <motion.p variants={fadeInUp} className="text-xl text-blue-100 mb-8">Start managing your patients and appointments with DMT today.</motion.p>
+          <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/admin-98cb" className="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition inline-block">
               Start Free Trial
             </Link>
             <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-900 transition">
               Schedule Demo
             </button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Footer */}
