@@ -101,7 +101,7 @@ const PatientManagement = () => {
 
   const patientTypeColors = {
     local: 'bg-slate-100 text-slate-800',
-    international: 'bg-blue-100 text-cyan-800',
+    international: 'bg-blue-100 text-blue-800',
   }
 
   return (
