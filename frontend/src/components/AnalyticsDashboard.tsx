@@ -251,7 +251,7 @@ const AnalyticsDashboard = () => {
                   <span className="text-2xl">{insight.icon}</span>
                   <div className="flex-1">
                     <p className="font-semibold text-slate-900">{insight.title}</p>
-                    <p className="text-cyan-600 font-bold text-lg">{insight.value}</p>
+                    <p className="text-blue-600 font-bold text-lg">{insight.value}</p>
                     <p className="text-slate-600 text-sm mt-1">{insight.desc}</p>
                   </div>
                 </div>

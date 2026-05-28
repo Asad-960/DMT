@@ -207,7 +207,7 @@ const TravelCoordination = () => {
                   {itinerary.status.charAt(0).toUpperCase() + itinerary.status.slice(1)}
                 </span>
               </div>
-              <Plane className="text-cyan-500" size={28} />
+              <Plane className="text-blue-500" size={28} />
             </div>
 
             {/* Dates */}
@@ -247,7 +247,7 @@ const TravelCoordination = () => {
 
             {/* Action Buttons */}
             <div className="flex gap-2">
-              <button className="flex-1 px-4 py-2 bg-cyan-100 text-cyan-700 font-medium rounded-lg hover:bg-cyan-200 transition-all duration-200">
+              <button className="flex-1 px-4 py-2 bg-blue-100 text-blue-700 font-medium rounded-lg hover:bg-blue-200 transition-all duration-200">
                 View Details
               </button>
               <button className="flex-1 px-4 py-2 bg-slate-100 text-slate-700 font-medium rounded-lg hover:bg-slate-200 transition-all duration-200">
@@ -271,7 +271,7 @@ const TravelCoordination = () => {
             const Icon = service.icon
             return (
               <div key={idx} className="bg-gradient-to-br from-slate-50 to-slate-100 p-4 rounded-lg text-center hover:shadow-medical transition-all duration-200">
-                <Icon size={32} className="mx-auto text-cyan-500 mb-2" />
+                <Icon size={32} className="mx-auto text-blue-500 mb-2" />
                 <p className="font-semibold text-slate-900">{service.label}</p>
                 <p className="text-xs text-slate-600 mt-1">{service.desc}</p>
               </div>

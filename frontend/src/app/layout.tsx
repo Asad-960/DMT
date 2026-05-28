@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 min-h-screen font-sans">
+      <body className="bg-slate-50 min-h-screen font-sans">
         {children}
       </body>
     </html>
