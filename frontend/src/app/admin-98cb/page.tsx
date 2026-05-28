@@ -12,8 +12,12 @@ import AIdiagnostics from '@/components/AIdiagnostics'
 import AIConcierge from '@/components/AIConcierge'
 import PatientPipeline from '@/components/PatientPipeline'
 import Compliance from '@/components/Compliance'
+import TreatmentPlanBuilder from '@/components/TreatmentPlanBuilder'
+import SalesAutomation from '@/components/SalesAutomation'
+import MedicalTourismLogistics from '@/components/MedicalTourismLogistics'
+import AgencyReferralManagement from '@/components/AgencyReferralManagement'
 
-type Page = 'dashboard' | 'patients' | 'appointments' | 'travel' | 'analytics' | 'payments' | 'diagnostics' | 'concierge' | 'pipeline' | 'compliance'
+type Page = 'dashboard' | 'patients' | 'appointments' | 'travel' | 'analytics' | 'payments' | 'diagnostics' | 'concierge' | 'pipeline' | 'compliance' | 'treatment-plan' | 'sales-automation' | 'medical-logistics' | 'agency-referral'
 
 export default function AdminPage() {
   const [currentPage, setCurrentPage] = useState<Page>('dashboard')
@@ -36,6 +40,10 @@ export default function AdminPage() {
     { id: 'concierge', label: 'AI Concierge', icon: MessageSquare },
     { id: 'pipeline', label: 'Patient Pipeline', icon: Activity },
     { id: 'compliance', label: 'Compliance', icon: Shield },
+    { id: 'treatment-plan', label: 'Treatment Plans', icon: FileText },
+    { id: 'sales-automation', label: 'Sales Automation', icon: Zap },
+    { id: 'medical-logistics', label: 'Medical Tourism', icon: Brain },
+    { id: 'agency-referral', label: 'Agency Mgmt', icon: Users },
   ]
 
   const renderPage = () => {
