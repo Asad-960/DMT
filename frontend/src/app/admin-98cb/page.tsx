@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { FileText, Users, Calendar, DollarSign, TrendingUp, Settings, LogOut, Menu, X, Brain, MessageSquare, Activity, Shield } from 'lucide-react'
+import { FileText, Users, Calendar, DollarSign, TrendingUp, Settings, LogOut, Menu, X, Brain, MessageSquare, Activity, Shield, Briefcase, ActivitySquare } from 'lucide-react'
 import Dashboard from '@/components/Dashboard'
 import PatientManagement from '@/components/PatientManagement'
 import AppointmentScheduler from '@/components/AppointmentScheduler'
@@ -12,8 +12,10 @@ import AIdiagnostics from '@/components/AIdiagnostics'
 import AIConcierge from '@/components/AIConcierge'
 import PatientPipeline from '@/components/PatientPipeline'
 import Compliance from '@/components/Compliance'
+import ClinicalEDR from '@/components/ClinicalEDR'
+import AgencyPortal from '@/components/AgencyPortal'
 
-type Page = 'dashboard' | 'patients' | 'appointments' | 'travel' | 'analytics' | 'payments' | 'diagnostics' | 'concierge' | 'pipeline' | 'compliance'
+type Page = 'dashboard' | 'patients' | 'appointments' | 'travel' | 'analytics' | 'payments' | 'diagnostics' | 'concierge' | 'pipeline' | 'compliance' | 'edr' | 'agency'
 
 export default function AdminPage() {
   const [currentPage, setCurrentPage] = useState<Page>('dashboard')
@@ -28,6 +30,7 @@ export default function AdminPage() {
   const menuItems = [
     { id: 'dashboard', label: 'Dashboard', icon: TrendingUp },
     { id: 'patients', label: 'Patients', icon: Users },
+    { id: 'edr', label: 'Clinical EDR', icon: ActivitySquare },
     { id: 'appointments', label: 'Appointments', icon: Calendar },
     { id: 'travel', label: 'Travel & Logistics', icon: FileText },
     { id: 'payments', label: 'Payments', icon: DollarSign },
@@ -35,6 +38,7 @@ export default function AdminPage() {
     { id: 'diagnostics', label: 'AI Diagnostics', icon: Brain },
     { id: 'concierge', label: 'AI Concierge', icon: MessageSquare },
     { id: 'pipeline', label: 'Patient Pipeline', icon: Activity },
+    { id: 'agency', label: 'Agency Portal', icon: Briefcase },
     { id: 'compliance', label: 'Compliance', icon: Shield },
   ]
 
@@ -42,6 +46,7 @@ export default function AdminPage() {
     const pages = {
       dashboard: <Dashboard />,
       patients: <PatientManagement />,
+      edr: <ClinicalEDR />,
       appointments: <AppointmentScheduler />,
       travel: <TravelCoordination />,
       analytics: <AnalyticsDashboard />,
@@ -49,6 +54,7 @@ export default function AdminPage() {
       diagnostics: <AIdiagnostics />,
       concierge: <AIConcierge />,
       pipeline: <PatientPipeline />,
+      agency: <AgencyPortal />,
       compliance: <Compliance />,
     }
     return pages[currentPage]

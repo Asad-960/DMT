@@ -2,15 +2,15 @@
 
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { ChevronDown, Menu, X, ArrowRight, Download } from 'lucide-react'
+import { motion, Variants } from 'framer-motion'
 
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }
 }
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -20,7 +20,7 @@ const staggerContainer = {
   }
 }
 
-const scaleIn = {
+const scaleIn: Variants = {
   hidden: { opacity: 0, scale: 0.85 },
   visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
 }
@@ -130,11 +130,19 @@ export default function LandingPage() {
               <motion.p variants={fadeInUp} className="text-xl text-gray-100 mb-8 leading-relaxed">
                 AI-powered CRM software that enables your team to collaborate, manage patients, and streamline your dental practice with ease.
               </motion.p>
-              <motion.div variants={fadeInUp}>
+              <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
                 <button className="bg-blue-400 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-300 transition flex items-center space-x-2">
                   <span>Try DMT Free</span>
                   <ArrowRight size={20} />
                 </button>
+                <a 
+                  href="/overview.pdf" 
+                  download="DMT_Features_Overview.pdf" 
+                  className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition flex items-center space-x-2"
+                >
+                  <Download size={20} />
+                  <span>Download Features PDF</span>
+                </a>
               </motion.div>
             </motion.div>
 
