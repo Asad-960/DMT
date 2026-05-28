@@ -149,53 +149,53 @@ export default function Dashboard() {
   ]
 
   const teamMembers = [
-    { name: 'Shawn Stone', role: 'UI/UX Designer', level: 'Middle', avatar: '👨‍💼', idx: 0 },
-    { name: 'Randy Delgado', role: 'UI/UX Designer', level: 'Junior', avatar: '👨‍💼', idx: 1 },
-    { name: 'Emily Tyler', role: 'Copywriter', level: 'Middle', avatar: '👩‍💼', idx: 2 },
-    { name: 'Louis Castro', role: 'Copywriter', level: 'Senior', avatar: '👨‍💼', idx: 3 },
-    { name: 'Blake Silva', role: 'iOS Developer', level: 'Senior', avatar: '👨‍💼', idx: 4 },
-    { name: 'Joel Phillips', role: 'UI/UX Designer', level: 'Middle', avatar: '👨‍💼', idx: 5 },
-    { name: 'Wayne Marsh', role: 'Copywriter', level: 'Junior', avatar: '👨‍💼', idx: 6 },
-    { name: 'Oscar Holloway', role: 'UI/UX Designer', level: 'Middle', avatar: '👨‍💼', idx: 7 },
+    { name: 'Dr. Mehmet Ö.', role: 'Lead Dentist', level: 'Senior', avatar: '👨‍⚕️', idx: 0 },
+    { name: 'Dr. Ayşe K.', role: 'Dentist', level: 'Senior', avatar: '👩‍⚕️', idx: 1 },
+    { name: 'Dr. Fatih Y.', role: 'Prosthodontist', level: 'Senior', avatar: '👨‍⚕️', idx: 2 },
+    { name: 'Dr. Zeynep Ç.', role: 'Oral Surgeon', level: 'Senior', avatar: '👩‍⚕️', idx: 3 },
+    { name: 'Nurse Leyla', role: 'Dental Assistant', level: 'Middle', avatar: '👩‍⚕️', idx: 4 },
+    { name: 'Nurse Ahmet', role: 'Dental Assistant', level: 'Middle', avatar: '👨‍⚕️', idx: 5 },
+    { name: 'Admin Cem', role: 'Administrative', level: 'Junior', avatar: '👨‍💼', idx: 6 },
+    { name: 'Admin Selin', role: 'Administrative', level: 'Junior', avatar: '👩‍💼', idx: 7 },
   ]
 
   const events = [
-    { title: 'Presentation of the new department', time: 'Today | 5:00 PM', color: 'bg-yellow-400', idx: 0, type: '📈' },
-    { title: "Anna's Birthday", time: 'Today | 6:00 PM', color: 'bg-green-400', idx: 1, type: '🎂' },
-    { title: "Ray's Birthday", time: 'Tomorrow | 2:00 PM', color: 'bg-green-400', idx: 2, type: '🎂' },
+    { title: 'Medical Conference - Istanbul', time: 'Today | 5:00 PM', color: 'bg-yellow-400', idx: 0, type: '📈' },
+    { title: 'Team Meeting - Q3 Review', time: 'Today | 6:00 PM', color: 'bg-blue-400', idx: 1, type: '👥' },
+    { title: 'Patient Follow-up Schedule', time: 'Tomorrow | 2:00 PM', color: 'bg-green-400', idx: 2, type: '⏰' },
   ]
 
   const projects = [
     { 
-      name: 'Medical App (iOS native)', 
+      name: 'International Implant Program', 
       code: 'PN0001265', 
       date: 'Sep 12, 2020',
-      priority: 'Medium',
+      priority: 'High',
       stats: { all: 34, active: 13, assignees: ['👨‍⚕️', '👩‍⚕️', '👨‍⚕️'], more: 2 },
       idx: 0
     },
     { 
-      name: 'Food Delivery Service', 
+      name: 'Cosmetic Smile Makeover', 
       code: 'PN0001221', 
       date: 'Sep 10, 2020',
       priority: 'Medium',
-      stats: { all: 50, active: 24, assignees: ['👨‍💼', '👩‍💼', '👨‍💼'] },
+      stats: { all: 50, active: 24, assignees: ['👨‍⚕️', '👩‍⚕️', '👨‍⚕️'] },
       idx: 1
     },
     { 
-      name: 'Food Delivery Service', 
+      name: 'Root Canal Specialization', 
       code: 'PN0001290', 
       date: 'May 28, 2020',
-      priority: 'Low',
-      stats: { all: 23, active: 20, assignees: ['👨‍💼', '👩‍💼'] },
+      priority: 'Medium',
+      stats: { all: 23, active: 20, assignees: ['👨‍⚕️', '👩‍⚕️'] },
       idx: 2
     },
   ]
 
   const activityStream = [
-    { user: 'Oscar Holloway', role: 'UI/UX Designer', action: 'Updated the status of Mind Map task to In Progress', avatar: '👨‍💼', idx: 0 },
-    { user: '', role: '', action: 'Attached files to the task', avatar: '📎', idx: 1 },
-    { user: 'Emily Tyler', role: 'Copywriter', action: 'Updated the status of Mind Map task to In Progress', avatar: '👩‍💼', idx: 2 },
+    { user: 'Dr. Mehmet Ö.', role: 'Lead Dentist', action: 'Started treatment plan for international patient John Smith', avatar: '👨‍⚕️', idx: 0 },
+    { user: '', role: '', action: 'Uploaded before/after treatment photos', avatar: '📸', idx: 1 },
+    { user: 'Admin Selin', role: 'Administrative', action: 'Confirmed appointment for Sarah Johnson - Implant Surgery', avatar: '👩‍💼', idx: 2 },
   ]
 
   const lineChartData = {
