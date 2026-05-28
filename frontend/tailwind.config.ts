@@ -10,12 +10,12 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          900: '#082f49',
+          50: '#eff6ff',
+          100: '#dbeafe',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+          900: '#1e3a8a',
         },
         medical: {
           50: '#faf9f7',
@@ -33,8 +33,11 @@ const config: Config = {
         medical: ['"Inter Display"', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        medical: '0 10px 40px rgba(0, 0, 0, 0.08)',
-        'medical-lg': '0 20px 60px rgba(0, 0, 0, 0.12)',
+        medical: '0 4px 6px rgba(0, 0, 0, 0.07)',
+        'medical-lg': '0 10px 15px rgba(0, 0, 0, 0.1)',
+      },
+      transitionTimingFunction: {
+        smooth: 'cubic-bezier(0.4, 0, 0.2, 1)',
       },
     },
   },

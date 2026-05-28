@@ -278,7 +278,7 @@ const AppointmentScheduler = () => {
                     key={idx}
                     className={`p-2 rounded text-sm font-medium transition-all duration-200 ${
                       selectedDate.split('T')[0] === date.toISOString().split('T')[0]
-                        ? 'bg-cyan-500 text-white'
+                        ? 'bg-blue-500 text-white'
                         : 'hover:bg-slate-100'
                     }`}
                     onClick={() => setSelectedDate(date.toISOString().split('T')[0])}

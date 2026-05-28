@@ -173,7 +173,7 @@ const PaymentSystem = () => {
             icon: CheckCircle,
             label: 'Monthly Avg',
             value: '$18,500',
-            color: 'bg-cyan-500',
+            color: 'bg-blue-500',
             subtext: 'Average monthly revenue',
           },
         ].map((stat, idx) => {
@@ -330,7 +330,7 @@ const PaymentSystem = () => {
                   </div>
                 </div>
 
-                <button className="w-full px-4 py-2 bg-cyan-100 text-cyan-700 font-medium rounded-lg hover:bg-cyan-200 transition-all duration-200">
+                <button className="w-full px-4 py-2 bg-blue-100 text-cyan-700 font-medium rounded-lg hover:bg-cyan-200 transition-all duration-200">
                   View Invoice
                 </button>
               </div>

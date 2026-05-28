@@ -145,7 +145,7 @@ export default function Dashboard() {
     { icon: Users, label: 'Total Patients', value: '1,245', trend: 12, color: 'bg-gradient-to-br from-blue-500 to-blue-600' },
     { icon: Calendar, label: 'Active Cases', value: '34', trend: 5, color: 'bg-gradient-to-br from-green-500 to-green-600' },
     { icon: CheckCircle, label: 'Completed', value: '892', trend: 8, color: 'bg-gradient-to-br from-purple-500 to-purple-600' },
-    { icon: TrendingUp, label: 'This Month Revenue', value: '$58.5K', trend: 15, color: 'bg-gradient-to-br from-cyan-500 to-cyan-600' },
+    { icon: TrendingUp, label: 'This Month Revenue', value: '$58.5K', trend: 15, color: 'bg-gradient-to-br from-blue-500 to-blue-600' },
   ]
 
   const teamMembers = [

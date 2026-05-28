@@ -101,7 +101,7 @@ const PatientManagement = () => {
 
   const patientTypeColors = {
     local: 'bg-slate-100 text-slate-800',
-    international: 'bg-cyan-100 text-cyan-800',
+    international: 'bg-blue-100 text-cyan-800',
   }
 
   return (
@@ -201,7 +201,7 @@ const PatientManagement = () => {
           <input
             type="text"
             placeholder="Search patients by name or email..."
-            className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -209,7 +209,7 @@ const PatientManagement = () => {
         <div className="flex items-center space-x-2">
           <Filter size={20} className="text-slate-500" />
           <select
-            className="px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
+            className="px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={filterType}
             onChange={(e) => setFilterType(e.target.value as any)}
           >
@@ -232,7 +232,7 @@ const PatientManagement = () => {
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold">
                       {patient.name.charAt(0)}
                     </div>
                     <div className="flex-1">
